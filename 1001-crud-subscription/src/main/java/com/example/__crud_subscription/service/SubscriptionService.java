@@ -22,6 +22,9 @@ public class SubscriptionService {
     public SubscriptionDTO createSubscription(SubscriptionDTO subscriptionDTO) {
         log.info("Creating a new subscription: {}", subscriptionDTO);
         Subscription subscription = SubscriptionMapper.INSTANCE.toEntity(subscriptionDTO);
+        if (subscription.getSubscriptionUsers() != null) {
+            subscription.getSubscriptionUsers().forEach(subscriptionUser -> subscriptionUser.setSubscription(subscription));
+        }
         return SubscriptionMapper.INSTANCE.toDTO(subscriptionRepository.save(subscription));
     }
 
@@ -37,7 +40,7 @@ public class SubscriptionService {
         subscription.setDuration(subscriptionDTO.getDuration());
         subscription.setSalonAdsExpiration(subscriptionDTO.getSalonAdsExpiration());
         subscription.setStylistAdsExpiration(subscriptionDTO.getStylistAdsExpiration());
-        subscription.setBanner(subscriptionDTO.getBanner());
+      //  subscription.setBanner(subscriptionDTO.getBanner());
         return SubscriptionMapper.INSTANCE.toDTO(subscriptionRepository.save(subscription));
     }
 
