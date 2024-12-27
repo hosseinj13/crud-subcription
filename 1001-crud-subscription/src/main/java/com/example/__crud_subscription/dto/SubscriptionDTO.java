@@ -51,7 +51,7 @@ public class SubscriptionDTO {
     Instant stylistAdsExpiration;
 
     @NotBlank(message = "Banner cannot be blank")
-    Boolean banner;
+    String banner;
 
     @Size(max = 100, message = "The subscription user list size must not exceed 100")
     List<SubscriptionUserDTO> subscriptionUsers;
