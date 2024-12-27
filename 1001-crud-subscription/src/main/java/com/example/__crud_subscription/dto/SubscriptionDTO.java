@@ -20,8 +20,6 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class SubscriptionDTO {
 
-    Long id;
-
     @NotBlank(message = "Subscription type cannot be blank")
     @Size(max = 50, message = "Subscription type cannot exceed 50 characters")
     String subscriptionType;
