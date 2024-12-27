@@ -44,8 +44,8 @@ public class Subscription {
     @Column(name = "stylist_ads_expiration")
     Instant stylistAdsExpiration;
 
-    @Column(columnDefinition = "BIT")
-    Boolean banner;
+    @Column(nullable = false)
+    String banner;
 
     @OneToMany(mappedBy = "subscription", cascade = CascadeType.ALL, orphanRemoval = true)
     List<SubscriptionUser> subscriptionUsers;
