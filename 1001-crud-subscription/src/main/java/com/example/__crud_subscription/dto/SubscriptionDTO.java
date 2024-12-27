@@ -20,7 +20,6 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class SubscriptionDTO {
 
-    @NotNull(message = "ID cannot be null for updates")
     Long id;
 
     @NotBlank(message = "Subscription type cannot be blank")
